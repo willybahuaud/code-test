@@ -7,11 +7,13 @@ divers test de code
 /*******************/
 
 
-je cherche à récupérer les métas d' un utilisateur sur un thème avec woocommerce et l' add-on photography. Ce dernier permet de construire des collections de photos et via l' admin. Dans le profil de l' utilisateur, je peux lui donner l' accès à une ou plusieurs collections.
+je cherche à récupérer les métas d' un utilisateur sur un thème avec woocommerce et l' add-on photography. Ce dernier permet de construire des collections de photos  via l' admin. Dans le profil de l' utilisateur, je peux lui donner l' accès à une ou plusieurs collections.
+
+Son atout: il permet le bulk upload.
 
 
 
-Le gros manque de ce plugin: l' ajout des accès doit se faire à la main, par l' administrateur du site. Cela fonctionne pour quelques utilisateurs  par jours, ce qui est mon cas, mais un photographe de mariage a, sur wp academy, posé la question qui tue: "et qu' est ce que je fais, moi, photographe de mariage avec cet add-on, si je dois ajouter lusieurs centaines de personnes par semaine?"
+Le gros manque de ce plugin: l' ajout des accès doit se faire à la main, par l' administrateur du site. Cela fonctionne pour quelques utilisateurs  par jours, ce qui est mon cas, mais un photographe de mariage a, sur wp academy, posé la question qui tue: "et qu' est ce que je fais, moi, photographe de mariage avec cet add-on, si je dois ajouter plusieurs centaines de personnes par semaine?"
 
 
 
