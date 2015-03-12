@@ -7,37 +7,23 @@ divers test de code
 /*******************/
 
 
-je cherche à récupérer les métas d' un utilisateur sur un thème avec woocommerce et l' add-on photography. Ce dernier permet de construire des collections de photos et via l' admin, profil de l' utilisateur, je peux lui donner l' accès à une ou plusieurs collections.
-
-Ce que je cherche à faire: ajouter automatiquement, lors de l' inscription au site, via un champ spécialisé du formulaire, l' accès à une collection donnée. Pour cela je dois ajouter à la méta-key "_wc_photography_collections" la valeur correspondant à la collection.
+je cherche à récupérer les métas d' un utilisateur sur un thème avec woocommerce et l' add-on photography. Ce dernier permet de construire des collections de photos et via l' admin. Dans le profil de l' utilisateur, je peux lui donner l' accès à une ou plusieurs collections.
 
 
-Problème: pour chercher la méta-key, j' ai récupéré le tableau des métas. J' avais rempli le champ dans le profil et ai ce résultat:
 
-  ["_wc_photography_collections"]=>
-  array(1) {
-    [0]=>
-    string(26) "a:2:{i:0;i:457;i:1;i:458;}"
-  }
-  
-  ce qui montre qu' il y a bien une valeur stockée.
-  
-  Mais lorsque j' explore le $user_collection, j' obtiens ce tableau:
-  
-  rray(1) {
-  [0]=>
-  array(2) {
-    [0]=>
-    int(457)
-    [1]=>
-    int(458)
-  }
-}
+Le gros manque de ce plugin: l' ajout des accès doit se faire à la main, par l' administrateur du site. Cela fonctionne pour quelques utilisateurs  par jours, ce qui est mon cas, mais un photographe de mariage a, sur wp academy, posé la question qui tue: "et qu' est ce que je fais, moi, photographe de mariage avec cet add-on, si je dois ajouter lusieurs centaines de personnes par semaine?"
 
-qui ne contient pas de valeurs.
 
-Ensuite, si j' ajoute une valeur à cette clef, j' écrase la valeur existante. 
 
-update_user_meta( $user_id, $meta_key, $meta_value, $prev_value );
+La réponse à ce problème est donc de créer une page de login dédiée dans laqellle, outre les informations classique, l' utilisateur entrera également le nom de la collection.
 
-Je suppose que c' est parce que je n' ai pas rempli le paramètre  $prev_value, mais le codex est succint à ce sujet.
+
+Mais avant, j' avais besoin de savoir comment étaient stockées ces informations, pour pouvoir les y placer dès l' inscriptions. 
+
+Où j' en suis: j' ai trouvé les informations dans le tableau wc_photography_collections des user-métas. Plus exactement ce sont des identifiants.
+Etape suivante: trouver où sont les valeurs liées à ces identifiants.
+
+
+Une fois cela fait, je pourrai les introduire via un script dans ce tableau, script géré par la page de login.
+
+
