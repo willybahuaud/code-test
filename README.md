@@ -17,7 +17,7 @@ Le gros manque de ce plugin: l' ajout des accès doit se faire à la main, par l
 
 
 
-La réponse à ce problème est donc de créer une page de login dédiée dans laqellle, outre les informations classique, l' utilisateur entrera également le nom de la collection.
+La réponse à ce problème est donc de créer une page de login dédiée dans laquellle, outre les informations classique, l' utilisateur entrera également le nom de la collection.
 
 
 Mais avant, j' avais besoin de savoir comment étaient stockées ces informations, pour pouvoir les y placer dès l' inscriptions. 
@@ -28,4 +28,32 @@ Etape suivante: trouver où sont les valeurs liées à ces identifiants.
 
 Une fois cela fait, je pourrai les introduire via un script dans ce tableau, script géré par la page de login.
 
+
+
+
+
+
+
+/*******************/
+/***17/03/2015***/
+/*******************/
+
+
+
+La première partie est réglée: j' ai les métas du user et plus particulièrement celle liée à ce plugin qui fourni des identifiants de collections. ( _wc_photography_collections).
+
+La taxonomie définissant les collections est 'images_collections'. Je peux donc accéder aux noms et identifiants via "get_terms".
+
+Je modifie les formes d' inscriptions et de login via des hooks.
+
+login_form et register_form pour ce qui concerne l' addition d' un champ
+
+login_head et register_post pour la sauvegarde dans les métas
+
+Le principe de la sauvegarde est simple: je récupères les différents termes de la taxo via get_terms(), je boucle dessus en comparant le mot du champ aux noms de chaque terme et si cela fait tilt, bingo! il me suffit d' updater les métas avec l' identifiant correspondant.
+
+
+Problème du jour: je n' arrive pas à enregistrer les métais.
+
+Raison probable: les hooks utilisés arrivent trop tôt, respectivement avant que l' utilisateur ne soit identifié, ou avant qu' il ne soit créé. Mais je ne vois pas qoi utiliser et comment.
 
